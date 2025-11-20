@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KAMPUSTEN</title>
+    <link rel="icon" href="logomuz.jpg" type="image/jpeg">
+    <!-- Tailwind CSS CDN --><script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Özel CSS Stilleri ve Font Yüklemeleri --><script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary-yellow': '#ffde59', // İstenen arka plan rengi
+                        'deep-navy': '#1f2937', // Koyu metin ve elementler için
+                        'card-gradient-start': '#ffffff', // Kartlar için gradient başlangıcı
+                        'card-gradient-end': '#f8f8f8',   // Kartlar için gradient bitişi
+                    },
+                    fontFamily: {
+                        // Yeni modern fontlar
+                        heading: ['Poppins', 'sans-serif'], // Başlıklar için
+                        body: ['Montserrat', 'sans-serif'],   // Genel metinler için
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Modern Google Font'ları yükle */
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Montserrat:wght@400;500;600&display=swap');
+        
+        /* Body ve ana başlıklar için font atamaları */
+        body {
+            font-family: 'Montserrat', sans-serif; /* Genel metinler */
+        }
+        h1, h2, h3 {
+            font-family: 'Poppins', sans-serif; /* Başlıklar */
+        }
+
+        /* Kartların hover efekti ve gradient arka planı için ek stil */
+        .card-modern-effect {
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+            border-bottom: 4px solid #1f2937; /* deep-navy rengi */
+            background: linear-gradient(145deg, var(--tw-colors-card-gradient-start), var(--tw-colors-card-gradient-end)); /* Hafif degrade */
+        }
+        .card-modern-effect:hover {
+            transform: translateY(-8px); /* Daha belirgin yukarı kayma */
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04); /* Tailwind shadow-2xl */
+        }
+        /* İkonların stilini daha modern hale getirelim */
+        .card-icon {
+            font-size: 2.5rem; /* İkon boyutunu büyüt */
+            line-height: 1; /* Satır yüksekliğini ayarla */
+            margin-bottom: 0.75rem; /* Tailwind mb-3 ile uyumlu */
+            display: inline-block; /* İkonun kutusunu ayarla */
+        }
+
+        /* Yeni: Fare izi efekti için CSS */
+        .trail-dot {
+            position: fixed;
+            width: 8px; /* Başlangıç boyutu */
+            height: 8px;
+            border-radius: 50%;
+            pointer-events: none; /* Fare etkileşimlerini engelle */
+            opacity: 1;
+            transform: scale(1);
+            /* Sönme ve küçülme animasyonları için geçiş ayarları */
+            transition: width 0.5s ease-out, height 0.5s ease-out, opacity 0.5s ease-out, transform 0.5s ease-out;
+            z-index: 10000;
+        }
+    </style>
+</head>
+<body class="bg-primary-yellow min-h-screen text-deep-navy">
+    <img src="logomuz.jpg" alt="Logo"
+     class="absolute top-4 left-4 h-36 w-auto">
+
+
+    <!-- Ana Konteyner --><div class="container mx-auto p-4 sm:p-8">
+
+        <!-- Başlık ve Ana Buton Bölümü (Ortalanmış) --><header class="text-center py-16 sm:py-24 space-y-6">
+            <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight font-heading">
+                Geleceğinizi Şimdiden Şekillendirin
+            </h1>
+            <p class="text-lg sm:text-xl max-w-2xl mx-auto text-gray-700 font-body">
+                Seni en iyi, senin geçtiğin sıralardan yeni kalkmış biri anlar. Hayalindeki kampüste okuyan öğrencilerden hem ders takviyesi al hem de gelecekteki networkünü şimdiden kurmaya başla. Piyasadaki yüksek fiyatları ödemek zorunda değilsin burada 1 saat yerine hem 20 saat ders alırsın hem de mentörlük alırsın. Aşağıdaki butona tıklaman yeterli.          </p>
+
+            <!-- Detaylı Bilgi Butonu (Üst) --><button 
+<button onclick="window.location.href='form_modal.html';"
+        class="inline-flex items-center justify-center px-8 py-4 border border-transparent text-lg font-bold rounded-xl shadow-2xl transition duration-300 ease-in-out transform hover:scale-105
+               bg-deep-navy text-primary-yellow hover:bg-gray-700 active:ring-4 active:ring-primary-yellow/50 focus:outline-none focus:ring-4 focus:ring-deep-navy/30 font-heading">
+    Detaylı Bilgi Almak İstiyorum
+</button>
+
+
+        </header>
+
+        <!-- Kartlar Bölümü (5 Kart) --><section class="mt-12 sm:mt-16">
+            <h2 class="text-3xl font-bold text-center mb-10 font-heading">Bizi Diğerlerinden Ayıran Özellikler</h2>
+            
+            <!-- Kart Izgarası (5 kartı kapsar, duyarlı düzen) --><div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
+
+                <!-- Kart 1 --><div class="p-6 rounded-3xl shadow-xl card-modern-effect">
+                    <div class="card-icon">🚀</div> <!-- Güncellenmiş ikon --><h3 class="text-xl font-semibold mb-2 font-heading">Yenilikçi Bak</h3>
+                    <p class="text-gray-600 text-sm font-body">Seninle aynı sıradan geçmiş eğitmeninden ders al. Burada klasikleşmiş eğitim modelinin dışına çık. Hedeflediğin bölümdeki sırada oturan biri eğitmenin olsun. </p>
+                </div>
+
+                <!-- Kart 2 --><div class="p-6 rounded-3xl shadow-xl card-modern-effect">
+                    <div class="card-icon">📈</div>
+                    <h3 class="text-xl font-semibold mb-2 font-heading">Hızlı İlerleme</h3>
+                    <p class="text-gray-600 text-sm font-body">Sana neye ihtiyacın varsa onu sunarız ne eksik ne fazla. Hedeflediğin nete, hedeflediğin bölüme ulaşabileceğin; bölümler ve okullar hakkında soru sorabileceğin eğitmenlerin seni bekliyor. </p>
+                </div>
+
+                <!-- Kart 3 --><div class="p-6 rounded-3xl shadow-xl card-modern-effect">
+                    <div class="card-icon">🔒</div> <!-- Güncellenmiş ikon --><h3 class="text-xl font-semibold mb-2 font-heading">Kalite Önceliği</h3>
+                    <p class="text-gray-600 text-sm font-body">Eğitmenlerimiz Türkiye'nin en prestijli üniversitelerinde en prestijli bölümleri okuyan eğitmenlerdir. Geçtiğin yoldan daha önce geçtiler. Sen de Boğaziçi, ODTU, İTU gibi üniversitelerde okuyan eğitmeninle tanışmak istersen detaylı bilgi alma talebi bırak seni bilgilendirelim.</p>
+                </div>
+
+                <!-- Kart 4 --><div class="p-6 rounded-3xl shadow-xl card-modern-effect">
+                    <div class="card-icon">✨</div> <!-- Güncellenmiş ikon --><h3 class="text-xl font-semibold mb-2 font-heading">Network Avantajımız</h3>
+                    <p class="text-gray-600 text-sm font-body">Burada tanışacağın eğitmenlerin Türkiye'nin gelecekte üst kurumlarında çalışacak veya kaliteli kurumlar kuracak eğitmenlerdir. Sen de bu ağın bir parçası olarak geleceğine yatırım yapabilirsin. Üniversiteye 1-0 önde başlarsın. Bİlgi almak istiyorum demen yeterli.</p>
+                </div>
+
+                <!-- Kart 5 --><div class="p-6 rounded-3xl shadow-xl card-modern-effect xl:col-span-1 md:col-span-2 lg:col-span-1">
+                    <div class="card-icon">💬</div>
+                    <h3 class="text-xl font-semibold mb-2 font-heading">Sürekli iletişim </h3>
+                    <p class="text-gray-600 text-sm font-body">Bu süreçte ihtiyaç duyduğunuz her şeyi piyasadaki abartılı fiyatları ödemeden de kazanabilirsiniz. Tanışmamız için detaylı bilgi almak istiyorum demeniz yeterli. </p>
+                </div>
+
+            </div>
+        </section>
+        
+        <!-- Detaylı Bilgi Butonu (Alt) --><div class="text-center mt-12 sm:mt-16">
+            <button onclick="showModal('İkinci Butondan Bilgi Sayfasına Yönlendiriliyor...')"
+                    class="inline-flex items-center justify-center px-8 py-4 border border-transparent text-lg font-bold rounded-xl shadow-2xl transition duration-300 ease-in-out transform hover:scale-105
+                           bg-deep-navy text-primary-yellow hover:bg-gray-700 active:ring-4 active:ring-primary-yellow/50 focus:outline-none focus:ring-4 focus:ring-deep-navy/30 font-heading">
+                Detaylı Bilgi Almak İstiyorum
+            </button>
+        </div>
+
+        <!-- Alt Bilgi (Footer) --><footer class="text-center mt-20 py-6 border-t border-gray-400 text-gray-700 text-sm font-body">
+            <p>&copy; 2025 Kampusten. Tüm Hakları Saklıdır.</p>
+        </footer>
+
+    </div>
+
+    <!-- Modalı göstermek için JavaScript fonksiyonu --><script>
+        function showModal(message) {
+            const modal = document.createElement('div');
+            modal.className = 'fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50';
+            modal.innerHTML = `
+                <div class="bg-white p-6 rounded-xl shadow-2xl max-w-sm w-full text-center space-y-4">
+                    <h4 class="text-xl font-bold text-deep-navy font-heading">Bilgi!</h4>
+                    <p class="text-gray-700 font-body">${message}</p>
+                    <button onclick="this.closest('.fixed').remove()" class="px-4 py-2 bg-deep-navy text-primary-yellow rounded-lg hover:bg-gray-700 transition font-heading">Kapat</button>
+                </div>
+            `;
+            document.body.appendChild(modal);
+        }
+    </script>
+    
+    <!-- Yeni: Renkli fare izi efekti için JavaScript --><script>
+        const colors = [
+            '#ef4444', // Kırmızı
+            '#3b82f6', // Mavi
+            '#10b981', // Yeşil
+            '#ec4899', // Pembe
+            '#8b5cf6'  // Mor
+        ];
+        let colorIndex = 0;
+
+        document.addEventListener('mousemove', (e) => {
+            // Renk döngüsü
+            const color = colors[colorIndex % colors.length];
+            colorIndex++;
+
+            // Yeni nokta oluştur
+            const dot = document.createElement('div');
+            dot.className = 'trail-dot';
+            dot.style.backgroundColor = color;
+            
+            // Noktanın pozisyonunu ayarla (Merkezleme için boyutun yarısı kadar çıkarılır)
+            const dotSize = 8;
+            dot.style.left = `${e.clientX - (dotSize / 2)}px`;
+            dot.style.top = `${e.clientY - (dotSize / 2)}px`;
+            
+            document.body.appendChild(dot);
+
+            // 50ms sonra sönme/küçülme efektini başlat
+            // Bu, CSS transition'ları tetikler
+            setTimeout(() => {
+                dot.style.width = '0px';
+                dot.style.height = '0px';
+                dot.style.opacity = '0';
+                dot.style.transform = 'scale(0.1)'; // Tamamen küçülür
+            }, 50);
+
+            // 600ms sonra noktayı DOM'dan tamamen kaldır
+            setTimeout(() => {
+                dot.remove();
+            }, 600);
+        });
+    </script>
+</body>
+</html>

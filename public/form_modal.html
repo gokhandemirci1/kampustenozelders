@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Detaylı Bilgi Talep Formu</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="icon" href="logomuz.jpg" type="image/jpeg">
+
+<script>
+tailwind.config = {
+    theme: {
+        extend: {
+            colors: {
+                'primary-yellow': '#ffde59',
+                'deep-navy': '#1f2937',
+                'card-accent-blue': '#4fd1c5',
+                'card-black': '#111827',
+            },
+            fontFamily: {
+                heading: ['Poppins', 'sans-serif'],
+                body: ['Montserrat', 'sans-serif'],
+            }
+        }
+    }
+}
+</script>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Montserrat:wght@400;500;600&display=swap');
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #ffde59;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.form-input {
+    width: 100%;
+    padding: 0.75rem;
+    border-radius: 0.5rem;
+    background-color: #2e3a4e;
+    color: #ffffff;
+    border: 1px solid #4a5568;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+.form-input:focus {
+    border-color: var(--tw-colors-card-accent-blue);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(79, 209, 197, 0.5);
+}
+</style>
+</head>
+
+<body>
+    <img src="logomuz.jpg" alt="Logo"
+     class="absolute top-4 left-4 h-24 w-auto">
+<div class="bg-card-black text-white p-6 sm:p-10 rounded-xl shadow-2xl max-w-lg w-full space-y-6 border-t-4 border-primary-yellow">
+    <h4 class="text-3xl font-bold text-white font-heading text-center border-b border-gray-700 pb-4">Detaylı Bilgi Talep Formu</h4>
+
+    <form id="myForm">
+
+        <div class="mb-4">
+            <label for="adSoyad" class="block text-sm font-medium text-gray-300 mb-1 font-body">Adınız Soyadınız</label>
+            <input type="text" id="adSoyad" name="adSoyad" required class="form-input" placeholder="Adınız ve Soyadınız">
+        </div>
+
+        <div class="mb-4">
+            <label for="telefon" class="block text-sm font-medium text-gray-300 mb-1 font-body">Telefon Numaranız</label>
+            <input type="tel" id="telefon" name="telefon" required class="form-input" placeholder="5xx xxx xx xx">
+        </div>
+
+        <div class="mb-4">
+            <label for="email" class="block text-sm font-medium text-gray-300 mb-1 font-body">E-mail Adresiniz</label>
+            <input type="email" id="email" name="email" required class="form-input" placeholder="ornek@mail.com">
+        </div>
+
+        <div class="mb-6">
+            <label class="block text-sm font-medium text-gray-300 mb-2 font-body">Hangi Sınav Alanlarından Hazırlanıyorsunuz? (Birden Fazla Seçilebilir)</label>
+            <div class="space-y-2 p-3 border border-gray-700 rounded-lg bg-gray-900">
+                <label class="flex items-center space-x-2 text-gray-200 font-body">
+                    <input type="checkbox" name="sinavAlani" value="Sayisal" class="form-checkbox text-card-accent-blue rounded focus:ring-card-accent-blue">
+                    <span>Sayısal</span>
+                </label>
+                <label class="flex items-center space-x-2 text-gray-200 font-body">
+                    <input type="checkbox" name="sinavAlani" value="EsitAgirlik" class="form-checkbox text-card-accent-blue rounded focus:ring-card-accent-blue">
+                    <span>Eşit Ağırlık</span>
+                </label>
+                <label class="flex items-center space-x-2 text-gray-200 font-body">
+                    <input type="checkbox" name="sinavAlani" value="Sozel" class="form-checkbox text-card-accent-blue rounded focus:ring-card-accent-blue">
+                    <span>Sözel</span>
+                </label>
+            </div>
+        </div>
+
+        <div class="mb-6">
+            <label for="saatAraligi" class="block text-sm font-medium text-gray-300 mb-1 font-body">Detaylı Bilgiyi Hangi Saatler Arasında Almak İstersiniz?</label>
+            <select id="saatAraligi" name="saatAraligi" required class="form-input">
+                <option value="" disabled selected>Lütfen bir aralık seçin</option>
+                <option value="11-13">11:00 - 13:00</option>
+                <option value="13-15">13:00 - 15:00</option>
+                <option value="15-17">15:00 - 17:00</option>
+                <option value="17-19">17:00 - 19:00</option>
+                <option value="19-21">19:00 - 21:00</option>
+            </select>
+        </div>
+
+        <div class="mb-6">
+            <label for="kullaniciKodu" class="block text-sm font-medium text-gray-300 mb-1 font-body">Size Ait Bir Kod Varsa Yazınız (Opsiyonel)</label>
+            <textarea id="kullaniciKodu" name="kullaniciKodu" rows="4" class="form-input" placeholder="Varsa, size ait özel kod veya ek notları buraya girebilirsiniz..."></textarea>
+        </div>
+
+        <div class="text-center pt-4">
+            <button type="submit" class="px-8 py-3 bg-primary-yellow text-deep-navy rounded-xl shadow-lg hover:bg-yellow-400 transition font-heading text-lg font-bold">
+                Gönder ve Bilgi Al
+            </button>
+        </div>
+    </form>
+</div>
+
+<script>
+const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbznaBKtbQTbX-VeIA0iESqZgyr21iM3fbAtKZa7J5pZUVX-m4JPNOsEIfIl101qjIIG/exec";
+
+document.addEventListener("DOMContentLoaded", function() {
+    const form = document.getElementById("myForm");
+    form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+
+        const formData = new FormData(form);
+        const payload = {
+            adSoyad: formData.get("adSoyad"),
+            telefon: formData.get("telefon"),
+            email: formData.get("email"),
+            sinavAlani: formData.getAll("sinavAlani"),
+            saatAraligi: formData.get("saatAraligi"),
+            kullaniciKodu: formData.get("kullaniciKodu")
+        };
+
+        try {
+            await fetch(WEB_APP_URL, {
+                method: "POST",
+                mode: "no-cors",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(payload)
+            });
+
+            // Modal Başarı Mesajı
+            const modal = document.createElement('div');
+            modal.className = 'fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50';
+            modal.innerHTML = `
+                <div class="bg-white p-6 rounded-xl shadow-2xl max-w-sm w-full text-center space-y-4">
+                    <h4 class="text-xl font-bold text-deep-navy font-heading">Başarılı</h4>
+                    <p class="text-gray-700 font-body">Talebiniz başarıyla alındı ve Google E-Tabloya kaydedildi!</p>
+                    <button onclick="this.closest('.fixed').remove()" class="px-4 py-2 bg-deep-navy text-primary-yellow rounded-lg hover:bg-gray-700 transition font-heading">Kapat</button>
+                </div>
+            `;
+            document.body.appendChild(modal);
+            form.reset();
+        } catch (err) {
+            alert("Form gönderilirken hata oluştu! Konsolu kontrol et.");
+            console.error(err);
+        }
+    });
+});
+</script>
+</body>
+</html>
